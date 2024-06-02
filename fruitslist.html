@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://sthomepageackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/20c5629a29.js" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Products Page</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    header {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    
+#navItem1 {
+    color: #ffffff;
+    font-family: "Roboto";
+    font-size: 20px;
+}
+
+#navItem2 {
+    color: #ffffff;
+    font-family: "Roboto";
+
+    font-size: 20px;
+}
+
+#navItem3 {
+    color: #ffffff;
+    font-family: "Roboto";
+  
+    font-size: 20px;
+}
+
+#navItem4 {
+    color: #ffffff;
+
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.l{
+    color: #a1da8e;
+}  
+
+.item-add{
+    color: #302f2f;
+    padding-top: 10px;
+}
+    .search-container {
+        margin-top: 10px;
+    }
+    
+    .search-container input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        width: 70%;
+        margin-right: 10px;
+    }
+    
+    .search-container button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #555;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .search-container button:hover {
+        background-color: #777;
+    }
+    
+    main {
+        padding: 20px;
+    }
+    
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .product-card {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.2s;
+    }
+    
+    .product-card img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .product-card h2 {
+        font-size: 1.5em;
+        margin: 10px 0;
+    }
+    .product-card h5 {
+        font-size: 1.3em;
+        margin: 10px 0;
+    }
+    
+    .product-card p {
+        font-size: 1.2em;
+        color: #333;
+    }
+    
+    .product-card:hover {
+        transform: scale(1.05);
+        background-color: #c4efaf;
+    }
+    .btn{
+        background-color: #5b8546;
+        color: #fff;
+    }
+    .btn:hover{
+        background-color: #215806;
+        color:#f9f9f9
+    }
+    img{
+        height:50% !important;
+        width:30vw !important;
+        margin-bottom:40px;
+    }
+
+
+
+    .screen-cart {
+        /* width: 375px; */
+        max-height: 770px;
+        overflow: scroll;
+        border-radius: 25px;
+        background: white;
+        padding-top: 30px;
+        padding-left: 30px;
+        margin: 20px;
+        box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.1);
+      }
+      .cart-math-item {
+        margin: 5px 0;
+        font-weight: 700;
+      }
+      .cart-math-item span {
+        display: inline-block;
+        text-align: right;
+      }
+      .cart-math-item .cart-math-header {
+        width: 50%;
+      }
+      .btn{
+        margin-right: 15px !important;
+      }
+      .cart-math-item .g-price {
+        width: 40%;
+      }
+      ::-webkit-scrollbar{
+        display: none;
+      }
+      
+.cart-item {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #D7D7F9;
+    animation: fadeIn 0.3s;
+  }
+  .cart-item:last-child {
+    border-bottom: 5px solid #D7D7F9;
+  }
+  .cart-item img {
+    width: 10vw !important;
+    height:14vh !important;
+  }
+  .cart-item .g-price {
+    font-size: 24px;
+  }
+  
+  .cart-item-dets {
+    margin-left: 15px;
+    width: 100%;
+  }
+  
+  .cart-item-heading {
+    margin: 10px 0;
+  }
+  a{
+    text-decoration: none;
+    color: #ddd;
+  }
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark" id="as">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <h3 class="l">ECO MART</h3>
+                <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXCIMspQkYiYt68mHAV17pMv5G11CHmCSRnw&s" class="food-munch-logo" /> -->
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-link active" id="navItem1" href="index.html">
+                      HOME
+                        <span class="sr-only">(current)</span>
+                    </a>
+                    <a class="nav-link pl-5 pr-5" href="profile.html" id="navItem2">PROFILE</a>
+                    <!-- <a class="nav-link" href="#deliveryPaymentSection" id="navItem3">Delivery & Payment</a> -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <i class="bi bi-cart4"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
+                            <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+                          </svg>
+                      </button>
+                      
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <h1>Our Products</h1>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search products...">
+            <button onclick="searchProducts()">Search</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="product-grid">
+            <div class="product-card" id="1">
+                <img src="https://pngfile.net/public/uploads/preview/watermelon-png-free-download-2156629349387nh7ejzu6.png" alt="Product Image">
+                <h2>Water Melon</h2>
+                <p class="price"><i class="bi bi-currency-rupee"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                    <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
+                  </svg>99.00</p>
+				<div class="text-center" >
+					<a><button
+                        class="add-button btn btn-success"
+                        data-title="WaterMelon"
+                        data-price="99"
+                        onclick="a()">Add to Cart</button></a>
+                        <p id="added" class="item-add"></p>
+				 </div>
+            </div>
+            
+            <div class="product-card" id="2">
+                <img src="https://www.freeiconspng.com/thumbs/lemon-png/lemon-png-image-0.png" alt="Product Image">
+                <h2>Lemons</h2>
+                <p class="price"><i class="bi bi-currency-rupee"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                    <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
+                  </svg>69.00</p>
+				<div class="text-center" >
+					<a><button
+                        class="add-button btn btn-success"
+                        data-title="Lemons"
+                        data-price="69"
+                        onclick="a()">Add to Cart</button></a>
+                        <p id="added" class="item-add"></p>
+				 </div>
+            </div>
+            <div class="product-card" id="3">
+                <img src="https://i.pinimg.com/736x/3c/bf/ec/3cbfec1259635898efae5b57ea3ddea3.jpg" alt="Product Image">
+                <h2>Orange</h2>
+                <p class="price"><i class="bi bi-currency-rupee"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                    <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
+                  </svg>119.00</p>
+				<div class="text-center" >
+					<a><button
+                        class="add-button btn btn-success"
+                        data-title="Orange"
+                        data-price="119"
+                        onclick="a()">Add to Cart</button></a>
+                        <p id="added" class="item-add"></p>
+				 </div>
+            </div>
+            <div class="product-card" id="4">
+                <img src="https://png.pngtree.com/png-vector/20230329/ourmid/pngtree-grape-fruit-dark-purple-summer-photo-png-image_6671310.png" alt="Product Image">
+                <h2>Grapes</h2>
+                <p class="price"><i class="bi bi-currency-rupee"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                    <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
+                  </svg>109.00</p>
+				<div class="text-center" >
+					<a><button
+                        class="add-button btn btn-success"
+                        data-title="Grapes"
+                        data-price="109">Add to Cart</button></a>
+				 </div>
+            </div>
+            <div class="product-card" id="5">
+                <img src="https://pngfre.com/wp-content/uploads/apple-poster.png" alt="Product Image">
+                <h2>Apples</h2>
+                <p class="price"><i class="bi bi-currency-rupee"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                    <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
+                  </svg>189.00</p>
+				<div class="text-center" >
+					<a><button
+                        class="add-button btn btn-success"
+                        data-title="Apples"
+                        data-price="189">Add to Cart</button></a>
+				 </div>
+            </div>
+            <div class="product-card" id="6">
+                <img src="https://img.freepik.com/free-vector/vector-ripe-yellow-banana-bunch-isolated-white-background_1284-45456.jpg?size=626&ext=jpg&ga=GA1.1.1518270500.1717200000&semt=ais_user" alt="Product Image">
+                <h2>Banana</h2>
+                <p class="price"><i class="bi bi-currency-rupee"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                    <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
+                  </svg>119.00</p>
+				<div class="text-center" >
+					<a><button
+                        class="add-button btn btn-success"
+                        data-title="Banana"
+                        data-price="119">Add to Cart</button></a>
+				 </div>
+            </div>
+            <div class="product-card" id="7">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN50IJqw1-Da8vQ1ZLKp0TVBRA30i5d5dNlAGBu0TQ7LE1PsdMao3Y5VLKEBU9V6K6opY&usqp=CAU" alt="Product Image">
+                <h2>Cherries</h2>
+                <p class="price"><i class="bi bi-currency-rupee"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                    <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
+                  </svg>199.00</p>
+				<div class="text-center" >
+					<a><button
+                        class="add-button btn btn-success"
+                        data-title="Cherries"
+                        data-price="199">Add to Cart</button></a>
+				 </div>
+            </div>
+            <div class="product-card" id="8">
+                <img src="https://pngfre.com/wp-content/uploads/mango-poster.png" alt="Product Image">
+                <h2>Mango</h2>
+                <p class="price"><i class="bi bi-currency-rupee"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                    <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
+                  </svg>69.00</p>
+				<div class="text-center" >
+					<a><button
+                        class="add-button btn btn-success"
+                        data-title="Mango"
+                        data-price="99">Add to Cart</button></a>
+				 </div>
+            </div>
+            <div class="product-card" id="9">
+                <img src="https://www.pngall.com/wp-content/uploads/2016/05/Avocado-PNG-Clipart.png" alt="Product Image">
+                <h2>Avacado</h2>
+                <p class="price"><i class="bi bi-currency-rupee"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                    <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
+                  </svg>259.00</p>
+				<div class="text-center" >
+					<a><button
+                        class="add-button btn btn-success"
+                        data-title="Avacado"
+                        data-price="259">Add to Cart</button></a>
+				 </div>
+            </div>
+            <div class="product-card" id="10">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlfK7Ou-_2H9JbL_DKw8vQZ5UtJ31wMitMYTovj_r6RZ7i0rHH6va1Z0KoflsivLwcDTo&usqp=CAU" alt="Product Image">
+                <h2>Pineapple</h2>
+                <p class="price"><i class="bi bi-currency-rupee"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                    <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
+                  </svg>89.00</p>
+				<div class="text-center" >
+					<a><button class="btn">Add to Cart</button></a>
+				 </div>
+            </div>
+            <div class="product-card" id="11">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXPkjIDu_yB8UeK06pJZbgbQreG2yhbWlONQ&s" alt="Product Image">
+                <h2>Papaya</h2>
+                <p class="price"><i class="bi bi-currency-rupee"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                    <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
+                  </svg>59.00</p>				<div class="text-center" >
+					<a><button class="btn">Add to Cart</button></a>
+				 </div>
+            </div>
+            <div class="product-card" id="12">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ34vUZscSB-FA5--dYxc14NSqL6pkUpiFF6w&s" alt="Product Image">
+                <h2>Kiwi</h2>
+                <p class="price"><i class="bi bi-currency-rupee"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                    <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
+                  </svg>89.00</p>				<div class="text-center" >
+					<a><button class="btn">Add to Cart</button></a>
+				 </div>
+            </div>
+            <div class="product-card"id="13">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ1cYHBJ38dRSZOCmBBJC76tEPu-jA0ub3cQ&s" alt="Product Image">
+                <h2>Strawberry</h2>
+                <p class="price"><i class="bi bi-currency-rupee"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                    <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
+                  </svg>199.00</p>				<div class="text-center" >
+					<a><button class="btn">Add to Cart</button></a>
+				 </div>
+            </div>
+            <div class="product-card" id="14">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRah7BYycX57geelugpZSBA1ozEjrLo1bflbnuCVpfPP8IXA9Rlh-aQ2UaVxUhCJXWfB2Y&usqp=CAU" alt="Product Image">
+                <h2>Dragon Fruit</h2>
+                <p class="price"><i class="bi bi-currency-rupee"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                    <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
+                  </svg>109.00</p>
+				<div class="text-center" >
+					<a><button class="btn">Add to Cart</button></a>
+				 </div>
+            </div>
+            <div class="product-card" id="15">
+                <img src="https://png.pngtree.com/png-vector/20230726/ourmid/pngtree-with-whole-and-cut-pomegranate-on-white-background-png-image_6750524.png" alt="Product Image">
+                <h2>Pomegranate</h2>
+                <p class="price"><i class="bi bi-currency-rupee"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                    <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
+                  </svg>89.00</p>
+				<div class="text-center" >
+					<a><button class="btn">Add to Cart</button></a>
+				 </div>
+            </div>
+            
+        </div>
+        <script>
+            function a(){
+                c=0;
+                c=c+1;
+                para=document.getElementById('added').innerHTML="added to cart";
+            }
+        </script>
+
+        <script type="module">
+            let subtotal = 0;
+           
+            const calculateTax = subtotal => {
+            const tax = subtotal * 0.1;
+            const formattedTax = tax.toFixed(2);
+            return formattedTax;
+            };
+           
+            const calculateTotal = subtotal => {
+            const tax = calculateTax(subtotal);
+            const total = parseFloat(subtotal) + parseFloat(tax);
+            const formattedTotal = total.toFixed(2);
+            return formattedTotal;
+            };
+           
+            const getImgLink = title => {
+            let imgLink;
+            switch (title) {
+            case 'WaterMelon':
+            imgLink = 'https://pngfile.net/public/uploads/preview/watermelon-png-free-download-2156629349387nh7ejzu6.png';
+            break;
+            case 'Lemons':
+            imgLink = 'https://www.freeiconspng.com/thumbs/lemon-png/lemon-png-image-0.png';
+            break;
+            case 'Orange':
+            imgLink = 'https://i.pinimg.com/736x/3c/bf/ec/3cbfec1259635898efae5b57ea3ddea3.jpg';
+            break;
+            case 'Grapes':
+            imgLink = 'https://png.pngtree.com/png-vector/20230329/ourmid/pngtree-grape-fruit-dark-purple-summer-photo-png-image_6671310.png';
+            break;
+            case 'Apples':
+            imgLink = 'https://pngfre.com/wp-content/uploads/apple-poster.png';
+            break;
+            default:
+            imgLink = 'https://assets.codepen.io/687837/plate__chicken-salad.png';}
+           
+            return imgLink;
+            };
+           
+            $(document).ready(function () {
+                $('.add-button').on('click', function () {
+                    const title = $(this).data('title');
+                    const price = parseFloat($(this).data('price'));
+                    const imgLink = getImgLink(title);
+                    const productElement = $(this).closest('.product');
+    
+                    const existingCartItem = $(`.cart-item[data-title="${title}"]`);
+    
+                    if (existingCartItem.length > 0) {
+                        const quantityElement = existingCartItem.find('.item-quantity');
+                        const quantity = parseInt(quantityElement.text()) + 1;
+                        quantityElement.text(quantity);
+                    } else {
+                        const element = `
+                        <li class="cart-item" data-title="${title}">
+                            <img src="${imgLink}" alt="${title}">
+                            <div class="cart-item-dets">
+                                <p class="cart-item-heading">${title}</p>
+                                <p class="g-price">${price.toFixed(2)}/-</p>
+                                <div class="quantity-controls">
+                                    <button class="btn btn-sm btn-outline-secondary minus-button">-</button>
+                                    <span class="item-quantity">1</span>
+                                    <button class="btn btn-sm btn-outline-secondary plus-button">+</button>
+                                </div>
+                            </div>
+                        </li>
+                        `;
+                        $('.cart-items').append(element);
+                    }
+    
+                    subtotal += price;
+                    updateCart();
+                });
+        
+                $(document).on('click', '.minus-button', function () {
+                    const cartItem = $(this).closest('.cart-item');
+                    const productTitle = cartItem.data('title');
+                    const productElement = $(`.product:has(button[data-title="${productTitle}"])`);
+                    const price = parseFloat(cartItem.find('.g-price').text());
+                    const quantityElement = cartItem.find('.item-quantity');
+                    let quantity = parseInt(quantityElement.text());
+    
+                    if (quantity > 1) {
+                        quantity -= 1;
+                        quantityElement.text(quantity);
+                        subtotal -= price;
+                        updateCart();
+                    } else {
+                        cartItem.remove();
+                        subtotal -= price;
+                        updateCart();
+    
+                    
+                    }
+                });
+    
+                $(document).on('click', '.plus-button', function () {
+                    const cartItem = $(this).closest('.cart-item');
+                    const price = parseFloat(cartItem.find('.g-price').text());
+                    const quantityElement = cartItem.find('.item-quantity');
+                    let quantity = parseInt(quantityElement.text());
+    
+                    quantity += 1;
+                    quantityElement.text(quantity);
+                    subtotal += price;
+                    updateCart();
+                });
+    
+                const updateCart = () => {
+                    const formattedSubtotal = subtotal.toFixed(2);
+                    const tax = calculateTax(subtotal);
+                    const total = calculateTotal(subtotal);
+    
+                    $('.cart-math').html(`
+                        <p class="cart-math-item">
+                            <span class="cart-math-header">Subtotal:</span>
+                            <span class="g-price1 subtotal">${formattedSubtotal}</span>
+                        </p>
+                        <!-- <p class="cart-math-item">
+                            <span class="cart-math-header">Tax:</span>
+                            <span class="g-price1 tax">${tax}</span>
+                        </p> -->
+                        <p class="cart-math-item">
+                            <span class="cart-math-header">Total:</span>
+                            <span class="g-price1 total">${total}</span>
+                        </p>
+                        <div class="d-flex flex-row justify-content-end">
+                            <button class="btn btn-success col-4">
+                                <a href="/payment"> <span class="cart-math-header">Pay</span></a>
+                            </button>
+                        </div>
+                    `);
+                };
+            });
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('.add-button').forEach(button => {
+                    button.addEventListener('click', function () {
+                        // Show the "Added to Cart" message
+                        const addedToCartMessage = button.parentElement.querySelector('.added-to-cart');
+                        
+                        // Check if the message element exists before trying to modify it
+                        if (addedToCartMessage) {
+                            addedToCartMessage.style.display = 'inline';
+            
+                            // Optionally, you can hide the message after a few seconds
+                            setTimeout(function() {
+                                addedToCartMessage.style.display = 'none';
+                            }, 3000); // 3000 milliseconds = 3 seconds
+                        }
+                    });
+                });
+            });
+           </script>
+    
+    
+           
+           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Your Cart</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="screen-cart col-11">
+                        <h2>Your Cart</h2>
+                        <!--  Cart Items -->
+                        <ul class="cart-items">
+                        </ul>
+                        
+                        <div class="cart-math">
+                          <p>Add items to cart</p>
+                        </div>
+                      </div>
+                    
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Add items</button>
+                   <a href="/payment"><button type="button" class="btn btn-primary">Check Out</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+		
+    </main>
+</body>
+</html>

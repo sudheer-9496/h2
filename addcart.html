@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shopping Cart</title>
+    <h1>Your Eco-Mart shopping-cart</h1>
+    <link rel="stylesheet" href="addcart.css" media="screen" title="no title" charset="utf-8">
+    <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
+    <meta name="robots" content="noindex,follow" />
+  </head>
+  <body>
+    <div class="column">
+    <div class=" row shopping-cart">
+      <!-- Title -->
+      <div class="title">
+        Shopping Bag
+      </div>
+
+      <!-- Product #1 -->
+      <div class="item">
+        
+
+        <div class="image">
+          <img src="https://designmodo.com/demo/shopping-cart/item-1.png" alt="" />
+        </div>
+
+        <div class="description">
+          <span>Common Projects</span>
+          <span>Bball High</span>
+          <span>White</span>
+        </div>
+
+        <div class="quantity">
+          <button class="minus-btn" type="button" name="button">
+            <img src="https://designmodo.com/demo/shopping-cart/minus.svg" alt="minus.svg" />
+          </button>
+          <input type="text" name="name" value="1">
+          <button class="plus-btn" type="button" name="button">
+            <img src="https://designmodo.com/demo/shopping-cart/plus.svg" alt="plus.svg" />
+          </button>
+        </div>
+
+        <div class="total-price">$549</div>
+        <div class="buttons">
+          <span class="like-btn"></span>
+          <span class="delete-btn"></span>
+        </div>
+      </div>
+
+      <!-- Product #2 -->
+      <div class="item">
+        
+
+        <div class="image">
+          <img src="https://designmodo.com/demo/shopping-cart/item-2.png" alt=""/>
+        </div>
+
+        <div class="description">
+          <span>Maison Margiela</span>
+          <span>Future Sneakers</span>
+          <span>White</span>
+        </div>
+
+        <div class="quantity">
+          <button class="minus-btn" type="button" name="button">
+            <img src="https://designmodo.com/demo/shopping-cart/minus.svg" alt="minus.svg" />
+          </button>
+          <input type="text" name="name" value="1">
+          <button class="plus-btn" type="button" name="button">
+            <img src="https://designmodo.com/demo/shopping-cart/plus.svg" alt="plus.svg" />
+          </button>
+        </div>
+
+        <div class="total-price">$870</div>
+        <div class="buttons">
+          <span class="like-btn"></span>
+          <span class="delete-btn"></span>
+        </div>
+      </div>
+
+      <!-- Product #3 -->
+      <div class="item">
+        <div class="image">
+          <img src="https://designmodo.com/demo/shopping-cart/item-3.png" alt="" />
+        </div>
+
+        <div class="description">
+          <span>Our Legacy</span>
+          <span>Brushed Scarf</span>
+          <span>Brown</span>
+        </div>
+        
+        <div class="quantity">
+          <button class="minus-btn" type="button" name="button">
+            <img src="https://designmodo.com/demo/shopping-cart/minus.svg" alt="minus.svg" />
+          </button>
+          <input type="text" name="name" value="1">
+          <button class="plus-btn" type="button" name="button">
+            <img src="https://designmodo.com/demo/shopping-cart/plus.svg" alt="plus.svg" />
+          </button>
+        </div>
+
+        <div class="total-price">$349</div>
+        <div class="buttons">
+          <span class="like-btn"></span>
+          <span class="delete-btn"></span>
+        </div>
+      </div>
+      <div class="col-lg-4 bg-grey">
+        <div class="p-5">
+          <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+          <hr class="my-4">
+
+          <div class="d-flex justify-content-between mb-4">
+            <h5 class="text-uppercase">items 3</h5>
+            <h5>€ 132.00</h5>
+          </div>
+
+          <h5 class="text-uppercase mb-3">Shipping</h5>
+
+          <div class="row">
+            <select data-mdb-select-init>
+              <option value="1">Standard-Delivery- €5.00</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+              <option value="4">Four</option>
+            </select>
+          </div>
+
+          <h5 class="text-uppercase mb-3">Give code</h5>
+
+          <div class="mb-5">
+            <div data-mdb-input-init class="form-outline">
+              <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
+              <label class="form-label" for="form3Examplea2">Enter your code</label>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <div class="d-flex justify-content-between mb-5">
+            <h5 class="text-uppercase">Total price</h5>
+            <h5>€ 137.00</h5>
+          </div>
+
+          <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-block btn-lg"
+            data-mdb-ripple-color="dark">Register</button>
+
+        </div>
+      </div>
+      <div style="text-align: right; margin-top: 5px;">
+        <button onclick="proceedToPayment()" style="background-color: #4CAF50; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; border: none; border-radius: 4px; cursor: pointer;">
+            Proceed to Payment
+        </button>
+    </div>
+    </div>
+    <div class="Back button">
+      <button onclick="history.back">Go Back</button>
+    </div>
+    <script type="text/javascript">
+      $('.minus-btn').on('click', function(e) {
+    		e.preventDefault();
+    		var $this = $(this);
+    		var $input = $this.closest('div').find('input');
+    		var value = parseInt($input.val());
+
+    		if (value > 1) {
+    			value = value - 1;
+    		} else {
+    			value = 0;
+    		}
+
+        $input.val(value);
+
+    	});
+
+    	$('.plus-btn').on('click', function(e) {
+    		e.preventDefault();
+    		var $this = $(this);
+    		var $input = $this.closest('div').find('input');
+    		var value = parseInt($input.val());
+
+    		if (value < 100) {
+      		value = value + 1;
+    		} else {
+    			value =100;
+    		}
+
+    		$input.val(value);
+    	});
+
+      $('.like-btn').on('click', function() {
+        $(this).toggleClass('is-active');
+      });
+    </script>
+  </body>
+</html>

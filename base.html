@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://sthomepageackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/20c5629a29.js" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    header {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    
+#navItem1 {
+    color: #ffffff;
+    font-family: "Roboto";
+    font-size: 20px;
+}
+
+#navItem2 {
+    color: #ffffff;
+    font-family: "Roboto";
+
+    font-size: 20px;
+}
+
+#navItem3 {
+    color: #ffffff;
+    font-family: "Roboto";
+  
+    font-size: 20px;
+}
+
+#navItem4 {
+    color: #ffffff;
+
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.l{
+    color: #a1da8e;
+}  
+
+.item-add{
+    color: #302f2f;
+    padding-top: 10px;
+}
+    .search-container {
+        margin-top: 10px;
+    }
+    
+    .search-container input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        width: 70%;
+        margin-right: 10px;
+    }
+    
+    .search-container button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #555;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .search-container button:hover {
+        background-color: #777;
+    }
+    
+    main {
+        padding: 20px;
+    }
+    
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .product-card {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.2s;
+    }
+    
+    .product-card img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .product-card h2 {
+        font-size: 1.5em;
+        margin: 10px 0;
+    }
+    .product-card h5 {
+        font-size: 1.3em;
+        margin: 10px 0;
+    }
+    
+    .product-card p {
+        font-size: 1.2em;
+        color: #333;
+    }
+    
+    .product-card:hover {
+        transform: scale(1.05);
+        background-color: #c4efaf;
+    }
+    .btn{
+        background-color: #5b8546;
+        color: #fff;
+    }
+    .btn:hover{
+        background-color: #215806;
+        color:#f9f9f9
+    }
+    img{
+        height:50% !important;
+        width:30vw !important;
+        margin-bottom:40px;
+    }
+
+
+
+    .screen-cart {
+        /* width: 375px; */
+        max-height: 770px;
+        overflow: scroll;
+        border-radius: 25px;
+        background: white;
+        padding-top: 30px;
+        padding-left: 30px;
+        margin: 20px;
+        box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.1);
+      }
+      .cart-math-item {
+        margin: 5px 0;
+        font-weight: 700;
+      }
+      .cart-math-item span {
+        display: inline-block;
+        text-align: right;
+      }
+      .cart-math-item .cart-math-header {
+        width: 50%;
+      }
+      .btn{
+        margin-right: 15px !important;
+      }
+      .cart-math-item .g-price {
+        width: 40%;
+      }
+      ::-webkit-scrollbar{
+        display: none;
+      }
+      
+.cart-item {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #D7D7F9;
+    animation: fadeIn 0.3s;
+  }
+  .cart-item:last-child {
+    border-bottom: 5px solid #D7D7F9;
+  }
+  .cart-item img {
+    width: 10vw !important;
+    height:14vh !important;
+  }
+  .cart-item .g-price {
+    font-size: 24px;
+  }
+  
+  .cart-item-dets {
+    margin-left: 15px;
+    width: 100%;
+  }
+  
+  .cart-item-heading {
+    margin: 10px 0;
+  }
+
+
+ .minus-button,.plus-button{
+    width: 3vw;
+  }
+  .item-quantity{
+    padding: 10px;
+    padding-right: 15px;
+  }
+</style>
+
+<body>
+    <div class="container">
+        <div class="product-card" id="1">
+            <img src="https://atlas-content-cdn.pixelsquid.com/stock-images/dining-chair-YeXkoR5-600.jpg" alt="Product Image">
+            <h2>Chair</h2>
+            <p class="price"><i class="bi bi-currency-rupee"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                    <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
+                </svg>299.00</p>
+            <div class="text-center">
+                <button class="add-button btn btn-success" data-title="Chair" data-price="299">Add to Cart</button>
+                <span class="added-to-cart" style="display: none;">Item added to cart</span>
+            </div>
+        </div>
+        <script>
+        // Add event listener to all "Add to Cart" buttons
+document.querySelectorAll('.add-button').forEach(button => {
+    button.addEventListener('click', function () {
+        // Show the "Added to Cart" message
+        const addedToCartMessage = button.parentElement.querySelector('.added-to-cart');
+        addedToCartMessage.style.display = 'inline';
+        
+        // Optionally, you can hide the message after a few seconds
+        setTimeout(function() {
+            addedToCartMessage.style.display = 'none';
+        }, 3000); // 3000 milliseconds = 3 seconds
+    });
+});
+</script>
+
+        <div class="cart">
+            <h2>Cart</h2>
+            <ul class="cart-items list-unstyled">
+                <!-- Cart items will be added here dynamically -->
+            </ul>
+            <div class="cart-math">
+                <p class="cart-math-item">
+                    <span class="cart-math-header">Subtotal:</span>
+                    <span class="g-price1 subtotal">0.00</span>
+                </p>
+                <p class="cart-math-item">
+                    <span class="cart-math-header">Total:</span>
+                    <span class="g-price1 total">0.00</span>
+                </p>
+                <div class="d-flex flex-row justify-content-end">
+                    <button class="btn btn-success col-4">
+                        <span class="cart-math-header">Pay</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        let subtotal = 0;
+
+        const calculateTax = subtotal => {
+            const tax = subtotal * 0.1;
+            return tax.toFixed(2);
+        };
+
+        const calculateTotal = subtotal => {
+            const tax = calculateTax(subtotal);
+            const total = parseFloat(subtotal) + parseFloat(tax);
+            return total.toFixed(2);
+        };
+
+        const getImgLink = title => {
+            let imgLink;
+            switch (title) {
+                case 'Chair':
+                    imgLink = 'https://atlas-content-cdn.pixelsquid.com/stock-images/dining-chair-YeXkoR5-600.jpg';
+                    break;
+                case 'Table':
+                    imgLink = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnoXiNftgqW-XPtWmlPCO9HhtVn1FwdNsSHBMG4iLrEPcCAsPivWEANHK1dqFeqU4YEbM&usqp=CAU';
+                    break;
+                case 'Bed':
+                    imgLink = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz0CNB6FVNJxC6uYffyd_IF0hM-jz-hrzlTTbhYj-Vp5NHc5AiqvJiWEXqFKhqH2YUkFg&usqp=CAU';
+                    break;
+                case 'Sofa':
+                    imgLink = 'https://atlas-content-cdn.pixelsquid.com/stock-images/grey-sectional-corner-fortune-sofa-K6080YE-600.jpg';
+                    break;
+                case 'TVstand':
+                    imgLink = 'https://atlas-content-cdn.pixelsquid.com/assets_v2/271/2717120375312880909/previews/G03-200x200.jpg';
+                    break;
+                default:
+                    imgLink = 'https://assets.codepen.io/687837/plate__chicken-salad.png';
+            }
+
+            return imgLink;
+        };
+
+        $(document).ready(function () {
+            $('.add-button').on('click', function () {
+                const title = $(this).data('title');
+                const price = parseFloat($(this).data('price'));
+                const imgLink = getImgLink(title);
+                const productElement = $(this).closest('.product');
+
+                const existingCartItem = $(`.cart-item[data-title="${title}"]`);
+
+                if (existingCartItem.length > 0) {
+                    const quantityElement = existingCartItem.find('.item-quantity');
+                    const quantity = parseInt(quantityElement.text()) + 1;
+                    quantityElement.text(quantity);
+                } else {
+                    const element = `
+                    <li class="cart-item" data-title="${title}">
+                        <img src="${imgLink}" alt="${title}">
+                        <div class="cart-item-dets">
+                            <p class="cart-item-heading">${title}</p>
+                            <p class="g-price">${price.toFixed(2)}/-</p>
+                            <div class="quantity-controls">
+                                <button class="btn btn-sm btn-outline-secondary minus-button">-</button>
+                                <span class="item-quantity">1</span>
+                                <button class="btn btn-sm btn-outline-secondary plus-button">+</button>
+                            </div>
+                        </div>
+                    </li>
+                    `;
+                    $('.cart-items').append(element);
+                }
+
+                subtotal += price;
+                updateCart();
+
+                // Replace Add to Cart button with quantity controls
+            
+            });
+
+            $(document).on('click', '.minus-button', function () {
+                const cartItem = $(this).closest('.cart-item');
+                const productTitle = cartItem.data('title');
+                const productElement = $(`.product:has(button[data-title="${productTitle}"])`);
+                const price = parseFloat(cartItem.find('.g-price').text());
+                const quantityElement = cartItem.find('.item-quantity');
+                let quantity = parseInt(quantityElement.text());
+
+                if (quantity > 1) {
+                    quantity -= 1;
+                    quantityElement.text(quantity);
+                    subtotal -= price;
+                    updateCart();
+                } else {
+                    cartItem.remove();
+                    subtotal -= price;
+                    updateCart();
+
+                    // Restore Add to Cart button
+                    const addButton = `<button class="add-button btn btn-success" data-title="${productTitle}" data-price="${price}">Add to Cart</button>`;
+                    productElement.find('.quantity-controls').replaceWith(addButton);
+                }
+            });
+
+            $(document).on('click', '.plus-button', function () {
+                const cartItem = $(this).closest('.cart-item');
+                const price = parseFloat(cartItem.find('.g-price').text());
+                const quantityElement = cartItem.find('.item-quantity');
+                let quantity = parseInt(quantityElement.text());
+
+                quantity += 1;
+                quantityElement.text(quantity);
+                subtotal += price;
+                updateCart();
+            });
+
+            const updateCart = () => {
+                const formattedSubtotal = subtotal.toFixed(2);
+                const tax = calculateTax(subtotal);
+                const total = calculateTotal(subtotal);
+
+                $('.cart-math').html(`
+                    <p class="cart-math-item">
+                        <span class="cart-math-header">Subtotal:</span>
+                        <span class="g-price1 subtotal">${formattedSubtotal}</span>
+                    </p>
+                    <!-- <p class="cart-math-item">
+                        <span class="cart-math-header">Tax:</span>
+                        <span class="g-price1 tax">${tax}</span>
+                    </p> -->
+                    <p class="cart-math-item">
+                        <span class="cart-math-header">Total:</span>
+                        <span class="g-price1 total">${total}</span>
+                    </p>
+                    <div class="d-flex flex-row justify-content-end">
+                        <button class="btn btn-success col-4">
+                            <span class="cart-math-header">Pay</span>
+                        </button>
+                    </div>
+                `);
+            };
+        });
+    </script>
+</body>
+</html>
